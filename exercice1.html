@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 1</title>
+</head>
+<body>
+    <h1>Exercice 1 : map()</h1>
+    <div id="original"></div>
+    <div id="resultat"></div>
+    
+    <script>
+        const nums = [2, 5, 8, 7, 3];
+        
+        document.getElementById('original').textContent = 'nums = [' + nums.join(', ') + ']';
+        
+        const nouvNums = nums.map(num => num * 3);
+        
+        document.getElementById('resultat').textContent = 'nums multiplié par 3 = [' + nouvNums.join(', ') + ']';
+        
+        console.log("Ex1 - Original:", nums);
+        console.log("Ex1 - Résultat:", nouvNums);
+    </script>
+</body>
+</html>
