@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 3</title>
+</head>
+<body>
+    <h1>Exercice 3 : Fonction pure</h1>
+    <div id="inscriptions"></div>
+    <div id="resultat"></div>
+    
+    <script>
+        const inscriptions = [
+            { id: 10, nom: 'Rami', filiere: 'DEV' },
+            { id: 11, nom: 'Kamali', filiere: 'DEV' },
+            { id: 12, nom: 'Fahmi', filiere: 'DEV' },
+            { id: 13, nom: 'Chaouki', filiere: 'DEV' }
+        ];
+        
+        let htmlInscriptions = '<h3>Inscriptions originales :</h3><ul>';
+        inscriptions.forEach(ins => {
+            htmlInscriptions += `<li>ID ${ins.id}: ${ins.nom} - ${ins.filiere}</li>`;
+        });
+        htmlInscriptions += '</ul>';
+        document.getElementById('inscriptions').innerHTML = htmlInscriptions;
+        
+        function ajouterInscription(nouvelleInscription) {
+            return [...inscriptions, nouvelleInscription];
+        }
+        
+        const nouvelle = { id: 14, nom: 'Ali', filiere: 'DEV' };
+        const nouvellesInscriptions = ajouterInscription(nouvelle);
+        
+        let htmlResultat = '<h3>Après ajout :</h3><ul>';
+        nouvellesInscriptions.forEach(ins => {
+            htmlResultat += `<li>ID ${ins.id}: ${ins.nom} - ${ins.filiere}</li>`;
+        });
+        htmlResultat += '</ul>';
+        document.getElementById('resultat').innerHTML = htmlResultat;
+        
+        console.log("Ex3 - Original:", inscriptions);
+        console.log("Ex3 - Après ajout:", nouvellesInscriptions);
+        console.log("Ex3 - Original inchangé?", inscriptions.length === 4);
+    </script>
+</body>
+</html>

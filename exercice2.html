@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 2</title>
+</head>
+<body>
+    <h1>Exercice 2 : filter() + map()</h1>
+    <div id="personnes"></div>
+    <div id="resultat"></div>
+    
+    <script>
+        const personnes = [
+            { nom: "Rami", age: 33, estMember: true },
+            { nom: "Fatihi", age: 24, estMember: false },
+            { nom: "Chakib", age: 45, estMember: true },
+            { nom: "Mounir", age: 37, estMember: false },
+        ];
+        
+        let htmlPersonnes = '<h3>Liste :</h3><ul>';
+        personnes.forEach(p => {
+            htmlPersonnes += `<li>${p.nom} (${p.age} ans) - Membre: ${p.estMember}</li>`;
+        });
+        htmlPersonnes += '</ul>';
+        document.getElementById('personnes').innerHTML = htmlPersonnes;
+        
+        const nomAgés = personnes
+            .filter(pers => pers.estMember === true)
+            .map(pers => pers.nom);
+        
+        document.getElementById('resultat').innerHTML = 
+            '<h3>Noms des membres :</h3>' + nomAgés.join(', ');
+        
+        console.log("Ex2 - Noms membres:", nomAgés);
+    </script>
+</body>
+</html>
